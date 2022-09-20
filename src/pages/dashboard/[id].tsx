@@ -21,18 +21,18 @@ const productID: NextPage<Props> = ({ profile }) => {
   const router = useRouter();
 
   const id_product = router.query.id;
- 
-  const getProduct = async (id: string) => {
+
+  const getProduct = async (id: any) => {
 
     const product = await api.get(`${EndPoints.GetProductsByID}/${id}`).then(resp => {
 
-      if (resp.status == 200) {     
+      if (resp.status == 200) {
         setProduct(resp.data)
       }
 
-      if (resp.hasOwnProperty('response')) {
-        return resp.response.data
-      }
+      // if (resp.hasOwnProperty('response')) {
+      //   return resp.response.data
+      // }
 
     }).catch((error) => {
       console.log(error);
@@ -54,7 +54,6 @@ const productID: NextPage<Props> = ({ profile }) => {
       gridTemplateColumns={'100% 1fr'}
       h='100%'
       gap='1'
-
       fontWeight='bold'
     >
       <GridItem pb='15' area={'header'}>
@@ -78,7 +77,7 @@ const productID: NextPage<Props> = ({ profile }) => {
 export default productID
 
 export async function getServerSideProps(ctx: any) {
-  
+
   const profile: Profile = await apiServerSide(ctx)
 
   return {

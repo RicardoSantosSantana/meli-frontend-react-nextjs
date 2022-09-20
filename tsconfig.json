@@ -22,6 +22,6 @@
     "**/pages/*.ts",
     "**/pages/*.tsx",
     "**/pages/*.jsx"
-  , "**/components/*.jsx", "src/components/product/New.jsx"     ],
+  , "**/components/*.jsx", "src/components/product/New.jsx", "src/components/product/FormNewProduct.tsx"     ],
   "exclude": ["node_modules"]
 }

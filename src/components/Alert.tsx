@@ -25,12 +25,12 @@ const Alert: NextPage<Props> = ({ onOpen, onClose, isOpen, message, size }) => {
 
                     message.map((dat, index) => {
                         return (<div key={dat.title + index}>
-                        <ListItem >
-                        <Heading as='h5' size='sm' pb={2} color='orange.500' >
-                                {dat.title.toString().toUpperCase()}
-                        </Heading>
-                        <ListIcon as={MdCheckCircle} color='orange.500' />{dat.message}</ListItem>
-                        <Divider pb="2"/>
+                            <ListItem >
+                                <Heading as='h5' size='sm' pb={2} color='orange.500' >
+                                    {dat.title.toString().toUpperCase()}
+                                </Heading>
+                                <ListIcon as={MdCheckCircle} color='orange.500' />{dat.message}</ListItem>
+                            <Divider pb="2" />
                         </div>
                         )
                     })

@@ -1,4 +1,4 @@
- import { api } from '../services/api'
+import axios from 'axios';
 
 import { EndPoints } from '../config/api';
 
@@ -15,7 +15,14 @@ export async function signInRequest(data: any) {
   user.append("provider", data.provider);
   user.append("token", data.token);
 
- 
+  const api = axios.create({
+    baseURL: process.env.NEXT_PUBLIC_BASE_API_URL,
+    headers: {
+      'accept': 'application/json',
+      'content-type': 'application/json',
+      "Access-Control-Allow-Origin": "*"
+    }
+  })
 
   const registerUser = async (user: any) => {
 
@@ -36,7 +43,7 @@ export async function signInRequest(data: any) {
       return response.data;
     })
     .catch(function (error) {
-      
+
       console.group("erro no auth.ts cath")
       console.log(error)
       console.groupEnd()

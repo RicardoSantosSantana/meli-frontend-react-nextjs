@@ -11,15 +11,15 @@ const Links = ['Dashboard', 'Projects', 'Team'];
 import NewProduct from './product/New'
 
 interface NavProps {
+  link: any;
   children: any;
-  link: string;
 }
 
-const NavLink: NextPage<NavProps> = ({ children, link }) => {
+const NavLink: NextPage<NavProps> = (Props: NavProps) => {
 
   return (
-    <Link href={link} px={2} py={1} rounded={'md'} _hover={{ textDecoration: 'none', bg: useColorModeValue('gray.200', 'gray.700'), }}  >
-      {children}
+    <Link href={Props.link} px={2} py={1} rounded={'md'} _hover={{ textDecoration: 'none', bg: useColorModeValue('gray.200', 'gray.700'), }}  >
+      {Props.children}
     </Link>
   );
 
@@ -103,7 +103,7 @@ const Menutop: NextPage<Props> = ({ profile }) => {
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <NavLink key={link} link={link}>{link}</NavLink>
               ))}
             </Stack>
           </Box>
